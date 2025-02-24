@@ -16,3 +16,4 @@ streamlit
 geopandas
 lightgbm
 python-dotenv
+hsfs
