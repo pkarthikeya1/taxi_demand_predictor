@@ -22,5 +22,5 @@ jobs:
       - name: Execute Python workflow from bash script
         env:
           HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
-        run: python -m feature_pipeline.py
+        run: python -m feature_pipeline
 
