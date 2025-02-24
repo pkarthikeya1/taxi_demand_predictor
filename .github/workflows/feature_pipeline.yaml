@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 jobs:
   feature_pipeline:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
