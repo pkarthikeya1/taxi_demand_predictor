@@ -1,12 +1,5 @@
 name: hourly-taxi-demand-feature-pipeline
 
-<<<<<<< HEAD
-on :
-  schedule :
-  - cron: '0 * * * *'
-  workflow_dispatch:
-jobs :
-=======
 on:
   schedule:
     - cron: '0 * * * *'
@@ -17,7 +10,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
->>>>>>> 519713923e558c4aea19699848200f3ae2e1c488
 
       - name: Setup Python 3.9
         uses: actions/setup-python@v4
@@ -27,29 +19,8 @@ jobs:
       - name: Install Dependencies
         run: pip install -r requirements.txt
 
-<<<<<<< HEAD
-    steps :
-    - uses : actions/checkout@v3
-
-
-    - name : Setup Python 3.9
-      uses : actions/setup-python@v4
-      with :
-        python-version : '3.9'
-
-
-    - name : Install Dependencies
-      run : pip install -r requirements.txt
-      if : steps.cache.outputs.cache-hit != 'true'
-
-    - name : execute python workflows from bash script
-      env :
-        HOPSWORKS_API_KEY: ${{secrets.HOPSWORKS_API_KEY}}
-      run : poetry run jupyter nbconvert notebooks/12_feature_pipeline.ipynb --to html 
-=======
       - name: Execute Python workflow from bash script
         env:
           HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
         run: python -m jupyter nbconvert --execute --to html notebooks/12_feature_pipeline.ipynb
->>>>>>> 519713923e558c4aea19699848200f3ae2e1c488
 
