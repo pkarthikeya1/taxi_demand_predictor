@@ -5,12 +5,6 @@
 An end-to-end machine learning system that predicts taxi demand in New York City on an hourly basis. This project demonstrates the implementation of a production-grade machine learning pipeline, from data ingestion to automated predictions.
 
 
-## Architecture
-<p align="center">
-  <img src="sys_arc.svg" alt="FlowChart" width="
-  600" height="200" />
-</p>
-
 
 ### Business Problem
 
