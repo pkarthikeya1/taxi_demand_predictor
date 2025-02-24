@@ -5,7 +5,6 @@
 An end-to-end machine learning system that predicts taxi demand in New York City on an hourly basis. This project demonstrates the implementation of a production-grade machine learning pipeline, from data ingestion to automated predictions.
 
 
-
 ### Business Problem
 
 Taxi drivers and ride-sharing services face a common challenge: determining where and when their services will be most needed. This project addresses this challenge by:
@@ -94,12 +93,9 @@ model_params = {
 }
 ```
 
-#### Performance Metrics
-- RMSE: [Add your metric]
-- MAE: [Add your metric]
-- R²: [Add your metric]
+#### Best Performance Metrics
+- MAE: 2.5916
 
-### Deployment Architecture 🚀
 
 
 ## Installation and Setup 💻
@@ -144,10 +140,13 @@ streamlit run frontend.py
    - Feature correlation studies
 
 2. **Model Development** (06-10)
-   - Baseline model: RMSE [Add metric]
-   - XGBoost improvements: -[X]% RMSE
-   - LightGBM optimization: -[Y]% RMSE
-   - Feature engineering impact: -[Z]% RMSE
+   ---
+   ``` - Measured in Mean Absolute Error (MAE)```
+
+   - Baseline mode => 3.72
+   - XGBoost improvement => 2.8196
+   - LightGBM optimization => 2.6238
+   - Feature engineering impact=> 2.5916
 
 3. **Pipeline Development** (11-13)
    - Feature store integration
@@ -160,9 +159,8 @@ streamlit run frontend.py
    - Better handling of temporal data
    - Faster training time
    - Lower memory usage
-   - Superior feature importance insights
 
-2. **Why Hopsworks Feature Store?**
+2. **Why Feature Store?**
    - Robust feature versioning
    - Online/offline feature consistency
    - Built-in monitoring
@@ -199,14 +197,10 @@ Contributions are welcome! Please follow these steps:
 
 ## Contact 📫
 
-[Add your contact information here]
+pervela.karthikeya@gmail.com
 
-## License 📄
-
-[Add your license information here]
 
 ## Acknowledgments 🙏
 
 - NYC Taxi & Limousine Commission for the dataset
 - Hopsworks team for feature store capabilities
-- [Add any other acknowledgments]
