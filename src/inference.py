@@ -44,7 +44,7 @@ def load_batch_of_features_from_feature_store(
 
     # read time-series data from the feature store 
 
-    fetch_data_from = current_date - timedelta(days=4)
+    fetch_data_from = current_date - timedelta(days=28)
     fetch_data_to = current_date - timedelta(hours=1)
     print(f"fetching data from {fetch_data_from} to {fetch_data_to}")
 
