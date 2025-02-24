@@ -16,4 +16,4 @@ streamlit
 geopandas
 lightgbm
 python-dotenv
-hsfs
+hsfs==3.7.0
