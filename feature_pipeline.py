@@ -1,9 +1,9 @@
 import sys
 import os
 
-# Add the parent directory to the Python path
-script_dir = os.getcwd() # Get the current working directory
-sys.path.append(os.path.abspath(os.path.join(script_dir, '..')))
+# # Add the parent directory to the Python path
+# script_dir = os.getcwd() # Get the current working directory
+# sys.path.append(os.path.abspath(os.path.join(script_dir, '..')))
 
 from datetime import datetime, timedelta
 import pandas as pd
@@ -13,7 +13,7 @@ import src.config as config
 from src.data import load_raw_data
 from src.data import transform_raw_data_into_ts_data
 
-current_date= pd.to_datetime(datetime.now()).floor('h')
+current_date= pd.Timestamp("2024-03-01").floor('h')
 print(f"{current_date=}")
 
 

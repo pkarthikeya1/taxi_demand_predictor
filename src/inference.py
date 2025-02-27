@@ -5,7 +5,10 @@ import hopsworks
 from hsfs.feature_store import FeatureStore
 import pandas as pd
 import numpy as np
-
+import os, sys
+# # Add the parent directory to the Python path
+script_dir = os.getcwd() # Get the current working directory
+sys.path.append(os.path.abspath(os.path.join(script_dir, '..')))
 
 import src.config as config
 
@@ -134,6 +137,7 @@ def load_predictions_from_store(
             - `pickup_hour`
     """
     from src.config import FEATURE_VIEW_PREDICTIONS_METADATA
+    
     from src.feature_store_api import get_or_create_feature_view
 
     # get pointer to the feature view

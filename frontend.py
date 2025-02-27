@@ -9,6 +9,11 @@ import streamlit as st
 import geopandas as gpd
 import pydeck as pdk
 
+import os, sys
+# # Add the parent directory to the Python path
+script_dir = os.getcwd() # Get the current working directory
+sys.path.append(os.path.abspath(os.path.join(script_dir, '..')))
+
 from src.inference import (
     load_batch_of_features_from_feature_store,
     load_model_from_registry,
@@ -20,7 +25,7 @@ from src.plot import plot_one_sample
 
 st.set_page_config(layout="wide")
 
-current_date = pd.Timestamp("2024-03-01").floor("h").tz_localize('UTC')
+current_date = pd.to_datetime("2024-03-01", utc=True).floor('H')
 st.title(f"Taxi demand prediction 🚕")
 st.header(f"{current_date}")
 
@@ -64,10 +69,10 @@ with st.spinner(text="Computing model predictions"):
     st.sidebar.write('✅ Model predictions arrived')
     progress_bar.progress(4/N_STEPS)
 
-# with st.spinner(text="Fetching batch of features used in the last run"):
-#     features_df = load_batch_of_features_from_feature_store(current_date)
-#     st.sidebar.write('✅ Inference features fetched from the store')
-#     progress_bar.progress(5/N_STEPS)
+with st.spinner(text="Fetching batch of features used in the last run"):
+    features_df = load_batch_of_features_from_feature_store(current_date)
+    st.sidebar.write('✅ Inference features fetched from the store')
+    progress_bar.progress(5/N_STEPS)
 
 with st.spinner(text="Preparing data to plot"):
 

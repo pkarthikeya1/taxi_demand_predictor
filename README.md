@@ -4,6 +4,7 @@
 
 An end-to-end machine learning system that predicts taxi demand in New York City on an hourly basis. This project demonstrates the implementation of a production-grade machine learning pipeline, from data ingestion to automated predictions.
 
+![overview](NYC_Taxi.svg)
 
 ### Business Problem
 
@@ -29,9 +30,12 @@ Taxi drivers and ride-sharing services face a common challenge: determining wher
   - Hyperparameter-tuned LightGBM model
   - Comprehensive performance monitoring
 
+
+
 ## Technical Architecture 🏗️
 
 ### Data Pipeline
+![DataProcessing](Feature_Processing.svg)
 
 1. **Data Ingestion**
    - Source: NYC Taxi & Limousine Commission API
@@ -39,6 +43,7 @@ Taxi drivers and ride-sharing services face a common challenge: determining wher
    - Data validation and quality checks
 
 2. **Feature Engineering**
+
    ```python
    # Example of feature computation
    def compute_time_features(df):
@@ -55,6 +60,7 @@ Taxi drivers and ride-sharing services face a common challenge: determining wher
 
 ### Model Development 🤖
 
+![Feature Engineering](Feature_Engieering.svg)
 #### Feature Engineering Pipeline
 - Temporal features (hour, day, week, month)
 - Rolling window statistics (mean, std, max, min)
@@ -70,6 +76,8 @@ def generate_lag_features(df, lag_hours=[1, 24, 168]):
 ```
 
 #### Model Selection Process
+
+![model_selection](Model_Selection.svg)
 1. **Baseline Models Evaluated:**
    - Simple Moving Average
    - Linear Regression
@@ -79,32 +87,26 @@ def generate_lag_features(df, lag_hours=[1, 24, 168]):
 2. **Final Model: LightGBM**
    - Superior performance on time series data
    - Efficient handling of large datasets
-   - Better feature importance insights
 
 ```python
-# Example model configuration
+# Model configuration
 model_params = {
-    'objective': 'regression',
-    'metric': 'rmse',
-    'boosting_type': 'gbdt',
-    'num_leaves': 31,
-    'learning_rate': 0.05,
-    'feature_fraction': 0.9
+    bagging_fraction=0.4024835862099092,
+    features_fraction=0.22410165390918682,
+    min_child_samples=73,
+    num_leaves=53
 }
 ```
 
-#### Best Performance Metrics
+#### Performance Metrics
 - MAE: 2.5916
-
-
 
 ## Installation and Setup 💻
 
 ### Prerequisites
 ```bash
+conda create -p venv python=3.12.9
 conda acitvate venv
-source venv/bin/activate  # Linux/Mac
-.\venv\Scripts\activate  # Windows
 pip install -r requirements.txt
 ```
 
@@ -146,7 +148,7 @@ streamlit run frontend.py
    - Baseline mode => 3.72
    - XGBoost improvement => 2.8196
    - LightGBM optimization => 2.6238
-   - Feature engineering impact=> 2.5916
+   - Feature engineering impact on LGBM=> 2.5916
 
 3. **Pipeline Development** (11-13)
    - Feature store integration
@@ -180,7 +182,7 @@ streamlit run frontend.py
    - Advanced feature selection
 
 2. **Business Features**
-   - Demand heatmap visualization
+   - Demand visualization
    - Driver allocation optimization
    - Revenue impact analysis
    - Pricing optimization integration
